@@ -15,7 +15,12 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+    - uses: actions/checkout@v2
+      with:
+        node-version: '20'
+    - name: Set up Swift
+      uses: actions/setup-swift@latest-version
     - name: Build
       run: swift build -v
     - name: Run tests
